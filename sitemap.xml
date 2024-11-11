@@ -2,16 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://wiirhan.github.io/tags/hugo/</loc>
-    <lastmod>2024-11-10T11:03:43+08:00</lastmod>
+    <loc>https://wiirhan.github.io/tags/ai/</loc>
+    <lastmod>2024-11-11T13:57:32+08:00</lastmod>
+  </url><url>
+    <loc>https://wiirhan.github.io/tags/cursor/</loc>
+    <lastmod>2024-11-11T13:57:32+08:00</lastmod>
+  </url><url>
+    <loc>https://wiirhan.github.io/posts/cursor/</loc>
+    <lastmod>2024-11-11T13:57:32+08:00</lastmod>
   </url><url>
     <loc>https://wiirhan.github.io/</loc>
-    <lastmod>2024-11-10T11:03:43+08:00</lastmod>
+    <lastmod>2024-11-11T13:57:32+08:00</lastmod>
   </url><url>
     <loc>https://wiirhan.github.io/posts/</loc>
-    <lastmod>2024-11-10T11:03:43+08:00</lastmod>
+    <lastmod>2024-11-11T13:57:32+08:00</lastmod>
   </url><url>
     <loc>https://wiirhan.github.io/tags/</loc>
+    <lastmod>2024-11-11T13:57:32+08:00</lastmod>
+  </url><url>
+    <loc>https://wiirhan.github.io/tags/workflow/</loc>
+    <lastmod>2024-11-11T13:57:32+08:00</lastmod>
+  </url><url>
+    <loc>https://wiirhan.github.io/tags/hugo/</loc>
     <lastmod>2024-11-10T11:03:43+08:00</lastmod>
   </url><url>
     <loc>https://wiirhan.github.io/posts/my-first-post/</loc>
