@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://wiirhan.github.io/sitemap.xml

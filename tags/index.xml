@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Neo&#39;Log</title>
+    <link>https://wiirhan.github.io/tags/</link>
+    <description>Recent content in Tags on Neo&#39;Log</description>
+    <image>
+      <title>Neo&#39;Log</title>
+      <url>https://wiirhan.github.io/assets/logo.png</url>
+      <link>https://wiirhan.github.io/assets/logo.png</link>
+    </image>
+    <generator>Hugo -- 0.138.0</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 Nov 2024 11:03:43 +0800</lastBuildDate>
+    <atom:link href="https://wiirhan.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo</title>
+      <link>https://wiirhan.github.io/tags/hugo/</link>
+      <pubDate>Sun, 10 Nov 2024 11:03:43 +0800</pubDate>
+      <guid>https://wiirhan.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>博客</title>
+      <link>https://wiirhan.github.io/tags/%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Sun, 10 Nov 2024 11:03:43 +0800</pubDate>
+      <guid>https://wiirhan.github.io/tags/%E5%8D%9A%E5%AE%A2/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
