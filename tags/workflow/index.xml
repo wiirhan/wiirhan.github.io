@@ -22,7 +22,32 @@
       <link>https://wiirhan.github.io/posts/cursor/</link>
       <pubDate>Mon, 11 Nov 2024 13:57:32 +0800</pubDate>
       <guid>https://wiirhan.github.io/posts/cursor/</guid>
-      <description>这是一篇关于如何使用Cursor提高工作效率的笔记</description>
+      <description>&lt;p&gt;在日常使用 Cursor 的过程中，我总结了一些能够是 Cursor 更高效工作的技巧。
+通过这些配置，能让 Cursor 更加&amp;quot;智能&amp;quot;。&lt;/p&gt;
+&lt;h3 id=&#34;先想清楚内容再写代码&#34;&gt;先想清楚内容，再写代码&lt;/h3&gt;
+&lt;p&gt;首先创建一个包含项目每个细节的完整文档：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;核心功能&lt;/li&gt;
+&lt;li&gt;技术栈&lt;/li&gt;
+&lt;li&gt;目标和宗旨&lt;/li&gt;
+&lt;li&gt;项目文件夹结构&lt;/li&gt;
+&lt;li&gt;数据库设计&lt;/li&gt;
+&lt;li&gt;配色方案&lt;/li&gt;
+&lt;li&gt;文案&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;将这些内容放入 &lt;code&gt;instructions.md&lt;/code&gt; 文件中(文件名随便起)，并放入项目根目录下，这样 Cursor 就能根据这些内容来编写代码。&lt;/p&gt;
+&lt;h3 id=&#34;使用-cursorrules-文件&#34;&gt;使用 &lt;code&gt;.cursorrules&lt;/code&gt; 文件&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;.cursorrules&lt;/code&gt; 是 Cursor AI 中的一个强大功能，允许开发人员为 AI 定义特定于项目的指令。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/PatrickJS/awesome-cursorrules&#34;&gt;awesome-cursorrules&lt;/a&gt; 是一个帮助你编写 &lt;code&gt;.cursorrules&lt;/code&gt; 文件的仓库。
+你可以从仓库中选择一个模板，然后根据需要进行修改。&lt;/p&gt;
+&lt;p&gt;在根目录创建 &lt;code&gt;.cursorrules&lt;/code&gt; 文件，然后根据项目需求，配置相应的规则。&lt;/p&gt;
+&lt;h3 id=&#34;聊天-vs-编辑器&#34;&gt;聊天 vs 编辑器&lt;/h3&gt;
+&lt;p&gt;使用聊天功能完成较小的任务，解释代码/命令。可以用它来提问和导航。&lt;/p&gt;
+&lt;p&gt;用编辑器（Composer）来写代码，始终在编辑器中标记你的&lt;code&gt;instructions.md&lt;/code&gt;文件。&lt;/p&gt;
+&lt;h3 id=&#34;标记文档&#34;&gt;标记文档&lt;/h3&gt;
+&lt;p&gt;复制项目使用的框架文档。&lt;/p&gt;
+&lt;p&gt;进入 Cursor 设置 &amp;gt; 功能 &amp;gt; 文档&lt;/p&gt;
+&lt;p&gt;粘贴这些连接，并在聊天/编辑器中通过&lt;code&gt;@Docs&lt;/code&gt;使用。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
