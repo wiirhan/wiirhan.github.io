@@ -6,10 +6,14 @@
     <description>Recent content in Posts on Neo&#39;Log</description>
     <image>
       <title>Neo&#39;Log</title>
-      <url>https://wiirhan.github.io/assets/images/logo.png</url>
-      <link>https://wiirhan.github.io/assets/images/logo.png</link>
+      <url>https://wiirhan.github.io/logo.png</url>
+      <link>https://wiirhan.github.io/logo.png</link>
     </image>
     <generator>Hugo -- 0.138.0</generator>
+    <follow_challenge>
+      <feedId>78772831236364288</feedId>
+      <userId>62872538587906048</userId>
+    </follow_challenge>
     <language>en</language>
     <lastBuildDate>Mon, 11 Nov 2024 13:57:32 +0800</lastBuildDate>
     <atom:link href="https://wiirhan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
@@ -29,3 +33,5 @@
     </item>
   </channel>
 </rss>
+
+

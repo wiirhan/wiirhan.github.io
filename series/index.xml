@@ -6,11 +6,17 @@
     <description>Recent content in Series on Neo&#39;Log</description>
     <image>
       <title>Neo&#39;Log</title>
-      <url>https://wiirhan.github.io/assets/images/logo.png</url>
-      <link>https://wiirhan.github.io/assets/images/logo.png</link>
+      <url>https://wiirhan.github.io/logo.png</url>
+      <link>https://wiirhan.github.io/logo.png</link>
     </image>
     <generator>Hugo -- 0.138.0</generator>
+    <follow_challenge>
+      <feedId>78772831236364288</feedId>
+      <userId>62872538587906048</userId>
+    </follow_challenge>
     <language>en</language>
     <atom:link href="https://wiirhan.github.io/series/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
+
+
