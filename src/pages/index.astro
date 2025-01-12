@@ -1,0 +1,24 @@
+---
+import Separator from "../components/home/separator.astro";
+import Writings from "../components/home/writings.astro";
+import Layout from "../layouts/main.astro";
+---
+
+<Layout title="Neo's Log">
+  <div
+    class="relative z-20 w-full max-w-4xl mx-auto mt-16 px-7 md:mt-24 lg:mt-32 xl:px-0"
+  >
+    <h1 class="text-4xl font-bold mb-4">👋 Welcome to Neo's Log!</h1>
+
+    <p class="text-lg">
+      Hi, this is Neo. I'm documenting my learning notes in this blog. I'm a
+      software engineer, and I'm passionate about building products and learning
+      new things. In this time, I'm learning about AI, and I'm excited to share
+      my learnings with you. If you have any questions or suggestions, please
+      feel free to contact me. Happy coding😉!
+    </p>
+  </div>
+
+  <Separator text="Some of my writing" />
+  <Writings />
+</Layout>

@@ -1,0 +1,18 @@
+---
+import CssWeeklyLoop from "../components/css-weekly-loop.astro";
+import PageHeading from "../components/page-heading.astro";
+import Layout from "../layouts/main.astro";
+---
+
+<Layout title="CSS Weekly">
+  <section class="relative z-20 max-w-2xl mx-auto my-12 px-7 lg:px-0">
+    <PageHeading
+      title="CSS Weekly"
+      description="CSS Weekly is a weekly newsletter that covers the latest CSS news, tutorials, and resources."
+    />
+
+    <div class="z-50 flex flex-col items-stretch w-full gap-5 my-8">
+      <CssWeeklyLoop />
+    </div>
+  </section>
+</Layout>
