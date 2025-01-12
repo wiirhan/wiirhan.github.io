@@ -1,4 +1,8 @@
 {
-  "extends": "astro/tsconfigs/strictest",
-  "allowSyntheticDefaultImports": true
+	"extends": "astro/tsconfigs/strictest",
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true
+	},
+	"include": [".astro/types.d.ts", "**/*"],
+	"exclude": ["dist"]
 }
