@@ -4,7 +4,6 @@ import CssWeeklyLayout from "../../layouts/css-weekly.astro";
 
 export async function getStaticPaths() {
 	const postEntries = await getCollection("css-weekly");
-	console.log(postEntries, "->>>>>");
 	return postEntries.map((entry) => ({
 		params: { slug: entry.slug },
 		props: { entry },
