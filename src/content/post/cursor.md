@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/post.astro
 title: Cursor工作流
 description: Cursor工作流
 dateFormatted: Nov 11 2024

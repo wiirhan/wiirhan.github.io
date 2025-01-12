@@ -4,8 +4,8 @@ const allPosts = await getCollection("post");
 
 const { count } = Astro.props;
 
-function parseDate(dateStr) {
-	const [month, day, year] = dateStr.split(" ");
+function parseDate(dateStr: string) {
+	const [month, day = "1", year] = dateStr.split(" ");
 	return new Date(`${month} ${Number.parseInt(day)}, ${year}`);
 }
 

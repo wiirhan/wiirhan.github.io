@@ -2,17 +2,17 @@
 import { getCollection } from "astro:content";
 const allPosts = await getCollection("css-weekly");
 
-function parseDate(dateStr) {
-	const [month, day, year] = dateStr.split(" ");
+function parseDate(dateStr: string) {
+	const [month, day = "1", year] = dateStr.split(" ");
 	return new Date(`${month} ${Number.parseInt(day)}, ${year}`);
 }
 
 const sortedPosts = allPosts
-  .filter((post) => post.data.collection === "weekly")
-  .map((post) => ({
-    ...post,
-    date: parseDate(post.data.dateFormatted),
-  }))
+	.filter((post) => post.data.type === "weekly")
+	.map((post) => ({
+		...post,
+		date: parseDate(post.data.dateFormatted),
+	}))
 	.sort((a, b) => b.date.getTime() - a.date.getTime());
 
 const postsLoop = sortedPosts.map((post) => {
