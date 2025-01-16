@@ -6,9 +6,5 @@
 	{
 		"name": "Posts",
 		"url": "/posts"
-	},
-	{
-		"name": "CSS Weekly",
-		"url": "/css-weekly"
 	}
 ]
