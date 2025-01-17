@@ -53,3 +53,21 @@ typeof alert // "function"  (3)
 - typeof null 的结果为 "object"。这是官方承认的 typeof 的错误，这个问题来自于 JavaScript 语言的早期阶段，并为了兼容性而保留了下来。null 绝对不是一个 object。null 有自己的类型，它是一个特殊值。typeof 的行为在这里是错误的。
 
 - typeof 会对函数区分对待，并返回 "function"。
+
+#### 数字型转换
+
+| 值  | 变成 |
+| --- | --- |
+| undefined | NaN |
+| null | 0 |
+| true 和 false | 1 and 0 |
+
+#### 布尔类型转换
+
+
+| 值  | 变成 |
+| --- | --- |
+| 0, null, undefined, NaN, "" | false |
+| 其他值 | true |
+
+- "0" 是true
