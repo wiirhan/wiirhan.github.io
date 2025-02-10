@@ -71,3 +71,51 @@ typeof alert // "function"  (3)
 | 其他值 | true |
 
 - "0" 是true
+
+## 对象
+
+### 垃圾回收
+
+- **分代收集（Generational collection）**—— 对象被分成两组：“新的”和“旧的”。在典型的代码中，许多对象的生命周期都很短：它们出现、完成它们的工作并很快死去，因此在这种情况下跟踪新对象并将其从内存中清除是有意义的。那些长期存活的对象会变得“老旧”，并且被检查的频次也会降低。
+- **增量收集（Incremental collection）**—— 如果有许多对象，并且我们试图一次遍历并标记整个对象集，则可能需要一些时间，并在执行过程中带来明显的延迟。因此，引擎将现有的整个对象集拆分为多个部分，然后将这些部分逐一清除。这样就会有很多小型的垃圾收集，而不是一个大型的。这需要它们之间有额外的标记来追踪变化，但是这样会带来许多微小的延迟而不是一个大的延迟。
+- **闲时收集（Idle-time collection）**—— 垃圾收集器只会在 CPU 空闲时尝试运行，以减少可能对代码执行的影响。
+
+### 构造函数
+
+#### 约定
+
+- 它们的命名以大写字母开头。
+- 它们只能由<code>new</code>操作符来执行。
+
+### Symbol
+
+- symbol在for...in中会被跳过,Object.keys()也会忽略它们。Object.assign会同时复制字符串和symbol属性。
+
+#### 全局symbol
+
+```js
+// 从全局注册表中读取
+let id = Symbol.for("id"); // 如果该 symbol 不存在，则创建它
+
+// 再次读取（可能是在代码中的另一个位置）
+let idAgain = Symbol.for("id");
+
+// 相同的 symbol
+alert( id === idAgain ); // true
+```
+
+### 对象--原始值转换
+
+#### hint
+
+- "string": 对象到字符串的转换
+- "number": 对象到数字的转换
+- "default": 当运算符”不确定“期望值的类型时
+
+为了进行转换，JavaScript 尝试查找并调用三个对象方法：
+
+1. 调用 <code>obj\[Symbol.toPrimitive\](hint)</code> —— 带有 symbol 键 Symbol.toPrimitive（系统 symbol）的方法，如果这个方法存在的话，
+2. 否则，如果 hint 是 "string" —— 尝试调用 obj.toString() 或 obj.valueOf()，无论哪个存在。
+3. 否则，如果 hint 是 "number" 或 "default" —— 尝试调用 obj.valueOf() 或 obj.toString()，无论哪个存在。
+
+## 数据类型
