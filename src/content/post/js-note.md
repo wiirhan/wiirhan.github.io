@@ -1,24 +1,24 @@
-
 ---
 title: JavaScript笔记
 description: JavaScript笔记
 dateFormatted: Jan 14 2025
 ---
 
-## JavaScript基础知识
+## JavaScript 基础知识
 
 ### 数据类型
 
-- js中有8种基本的数据类型（7种原始类型和1种引用类型）
+- js 中有 8 种基本的数据类型（7 种原始类型和 1 种引用类型）
 
-#### Number类型
+#### Number 类型
 
-- 任何对<code>NaN</code>的进一步数学运算都会返回<code>NaN</code>(只有一个例外：<code>NaN ** 0</code> 结果为 <code>1</code>)
+- 任何对<code>NaN</code>的进一步数学运算都会返回<code>NaN</code>(只有一个例外：<code>NaN \*\* 0</code> 结果为 <code>1</code>)
 
-#### BigInt类型
+#### BigInt 类型
 
 - 在 JavaScript 中，"number" 类型无法安全地表示大于 $$(2^{53} - 1)$$（即 9,007,199,254,740,991），或小于 $$-(2^{53} - 1)$$ 的整数。
 - 可以通过将 n 附加到整数字段的末尾来创建 BigInt 值。
+
 ```JavaScript
 // 尾部的"n" 表示这是一个BigInt类型
 const bigInt = 1234567890123456789012345678901234567890n;
@@ -56,21 +56,20 @@ typeof alert // "function"  (3)
 
 #### 数字型转换
 
-| 值  | 变成 |
-| --- | --- |
-| undefined | NaN |
-| null | 0 |
+| 值            | 变成    |
+| ------------- | ------- |
+| undefined     | NaN     |
+| null          | 0       |
 | true 和 false | 1 and 0 |
 
 #### 布尔类型转换
 
-
-| 值  | 变成 |
-| --- | --- |
+| 值                          | 变成  |
+| --------------------------- | ----- |
 | 0, null, undefined, NaN, "" | false |
-| 其他值 | true |
+| 其他值                      | true  |
 
-- "0" 是true
+- "0" 是 true
 
 ## 对象
 
@@ -89,9 +88,9 @@ typeof alert // "function"  (3)
 
 ### Symbol
 
-- symbol在for...in中会被跳过,Object.keys()也会忽略它们。Object.assign会同时复制字符串和symbol属性。
+- symbol 在 for...in 中会被跳过,Object.keys()也会忽略它们。Object.assign 会同时复制字符串和 symbol 属性。
 
-#### 全局symbol
+#### 全局 symbol
 
 ```js
 // 从全局注册表中读取
@@ -101,7 +100,7 @@ let id = Symbol.for("id"); // 如果该 symbol 不存在，则创建它
 let idAgain = Symbol.for("id");
 
 // 相同的 symbol
-alert( id === idAgain ); // true
+alert(id === idAgain); // true
 ```
 
 ### 对象--原始值转换
@@ -119,3 +118,76 @@ alert( id === idAgain ); // true
 3. 否则，如果 hint 是 "number" 或 "default" —— 尝试调用 obj.valueOf() 或 obj.toString()，无论哪个存在。
 
 ## 数据类型
+
+- 除 null 和 undefined 以外的原始类型都提供了许多有用的方法。
+- 从形式上讲，这些方法通过临时对象工作，但 JavaScript 引擎可以很好地调整，以在内部对其进行优化，因此调用它们并不需要太高的成本。
+
+> 如果想直接调用数字上的一个方法，需要在它的后面放置两个点..。
+
+```js
+alert((123456).toString()); // 等于(123456).toString()
+```
+### 字符串
+
+#### 按位（bitwise）NOT技巧
+
+将数字转换为32-bit整数（如果存在小数部分，则删除小数部分），然后对其二进制表示形式中的所有位均取反。
+
+也就是：对于32-bit整数，<code>~n</code>等于<code>-(n+1)</code>
+
+例如：
+```js
+alert( ~2 ); // -3，和 -(2+1) 相同
+alert( ~1 ); // -2，和 -(1+1) 相同
+alert( ~0 ); // -1，和 -(0+1) 相同
+alert( ~-1 ); // 0，和 -(-1+1) 相同
+```
+
+用在<code>indexOf</code>检查：
+
+```js
+let str = "Widget";
+
+if (~str.indexOf("Widget")) {
+  alert( 'Found it!' ); // 正常运行
+}
+```
+
+### 数组方法
+
+数组方法备忘单：
+
+- 添加/删除元素：
+
+  - push(...items) —— 向尾端添加元素，
+  - pop() —— 从尾端提取一个元素，
+  - shift() —— 从首端提取一个元素，
+  - unshift(...items) —— 向首端添加元素，
+  - splice(pos, deleteCount, ...items) —— 从 pos 开始删除 deleteCount 个元素，并插入 items。
+  - slice(start, end) —— 创建一个新数组，将从索引 start 到索引 end（但不包括 end）的元素复制进去。
+  - concat(...items) —— 返回一个新数组：复制当前数组的所有元素，并向其中添加 items。如果 items 中的任意一项是一个数组，那么就取其元素。
+
+- 搜索元素：
+
+  - indexOf/lastIndexOf(item, pos) —— 从索引 pos 开始搜索 item，返回找到的第一个索引，如果没找到则返回 -1。
+  - includes(value) —— 如果数组有 value，则返回 true，否则返回 false。
+  - find/filter(func) —— 通过 func 过滤元素，返回使 func 返回 true 的第一个值/所有值。
+  - findIndex 和 find 类似，但返回索引而不是值。
+
+- 遍历元素：
+
+  - forEach(func) —— 对每个元素都调用 func，不返回任何内容。
+
+- 转换元素：
+
+  - map(func) —— 根据对每个元素调用 func 的结果创建一个新数组。
+  - sort(func) —— 对数组进行原位（in-place）排序，然后返回它。
+  - reverse() —— 原位（in-place）反转数组，然后返回它。
+  - split/join —— 将字符串拆分为数组并返回/将数组项组合成字符串并返回。
+  - reduce/reduceRight(func, initial) —— 通过对每个元素调用 func 计算数组上的单个值，并在调用之间传递中间结果。
+
+- 其他：
+
+  - Array.isArray(value) 检查 value 是否是一个数组，如果是则返回 true，否则返回 false。
+
+sort, reverse, splice 会修改原数组
