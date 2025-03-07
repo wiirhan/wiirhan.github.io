@@ -210,3 +210,16 @@ sort, reverse, splice 会修改原数组
 - 当设置了超出范围的组件时，Date 会进行自动校准。这一点对于日/月/小时的加减很有用。
 - 日期可以相减，得到的是以毫秒表示的两者的差值。因为当 Date 被转换为数字时，Date 对象会被转换为时间戳。
 - 使用 Date.now() 可以更快地获取当前时间的时间戳。
+
+## 函数
+
+### new Function
+
+一下三种声明的含义相同：
+
+```js
+new Function('a', 'b', 'return a + b'); // 基础语法
+new Function('a,b', 'return a + b'); // 逗号分隔
+new Function('a , b', 'return a + b'); // 逗号和空格分隔
+```
+
