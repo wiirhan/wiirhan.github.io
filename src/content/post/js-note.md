@@ -223,3 +223,11 @@ new Function('a,b', 'return a + b'); // 逗号分隔
 new Function('a , b', 'return a + b'); // 逗号和空格分隔
 ```
 
+## 对象属性配置
+
+### 属性标志
+
+- writable — 如果为 true，则值可以被修改，否则它是只可读的。
+- enumerable — 如果为 true，则该属性在循环中可见，否则该属性在循环中不可见。
+- configurable — 如果为 true，则该属性可以被删除，并且该属性的一些标志可以被修改，否则不可以。
+
