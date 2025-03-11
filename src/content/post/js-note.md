@@ -231,3 +231,11 @@ new Function('a , b', 'return a + b'); // 逗号和空格分隔
 - enumerable — 如果为 true，则该属性在循环中可见，否则该属性在循环中不可见。
 - configurable — 如果为 true，则该属性可以被删除，并且该属性的一些标志可以被修改，否则不可以。
 
+## 原型
+
+### F.prototype
+
+- `F.prototype` 属性在`new F` 被调用时为新对象的`[[Prototype]]`赋值。
+- `F.prototype` 的值要么是一个对象，要么就是 `null`，其他值都不可能。
+- `"prototype"` 属性仅当设置在一个构造函数上，并通过`new` 调用时，才具有这种特殊的影响。
+
