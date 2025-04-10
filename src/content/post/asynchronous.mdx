@@ -1,0 +1,151 @@
+---
+title: 消除异步的传染性
+description: 如何将异步代码传染性降到最低
+dateFormatted: Apr 10 2025
+---
+
+import P1 from "./asynchronous/image.png";
+
+## 什么是异步传染性
+
+异步传染性是指异步代码在项目中传播和扩散的现象。当项目中存在异步代码时，这些代码会通过各种方式传播，导致项目中到处都是异步代码。
+
+例子：
+
+```js
+async function getUser() {
+  // ...
+  return await fetch('xxx')
+}
+
+async function m1() {
+  const user = await getUser()
+  // ...
+  return user
+}
+
+async function m2() {
+  const user = await m1()
+  // ...
+  return user
+} 
+
+async function m3() {
+  const user = await m2()
+  // ...
+  return user
+}
+
+async function main() {
+  const user = await m3()
+  console.log(user)
+}
+
+```
+
+上面的代码中，因为getUser是异步的，所以m1、m2、m3、main都是异步的。
+
+下面是我们想要的结果
+
+```js
+function getUser() {
+  // ...
+  return fetch("xxx");
+}
+
+function m1() {
+  const user = getUser();
+  // ...
+  return user;
+}
+
+function m2() {
+  const user = m1();
+  // ...
+  return user;
+}
+
+function m3() {
+  const user = m2();
+  // ...
+  return user;
+}
+
+function main() {
+  console.log("main");
+  const user = m3();
+  console.log(user);
+}
+```
+
+## 思路
+
+这里消除异步的关键在于把getUser变成同步的。但是fetch是一个的网络请求，如果变成同步的，那么就会阻塞主线程，导致页面卡死。所以我们需要改造fetch函数。
+
+1. 调用fetch函数后缓存结果
+2. 抛出异常，中断函数执行
+3. 等待网络请求结果，重新执行main函数
+
+<img src={P1.src} alt="image" />
+
+## 实现
+
+```js
+function run(fn) {
+  // 保存旧的fetch
+  const oldFetch = window.fetch;
+  // 缓存
+  const cache = {
+    status: "pending", // pending, resolved, rejected
+    value: null,
+  };
+  // 新的fetch
+  function newFetch(...args) {
+    if (cache.status === "resolved") {
+      return cache.value;
+    }
+    if (cache.status === "rejected") {
+      throw cache.value;
+    }
+    const p = oldFetch(...args)
+      .then((res) => res)
+      .then((data) => {
+        cache.status = "resolved";
+        cache.value = data;
+      })
+      .catch((err) => {
+        cache.status = "rejected";
+        cache.value = err;
+      });
+    throw p;
+  }
+  // 替换window.fetch
+  window.fetch = newFetch;
+  // 执行fn
+  try {
+    fn();
+  } catch (err) {
+    if (err instanceof Promise) {
+      err.finally(() => {
+        window.fetch = newFetch;
+        fn();
+        window.fetch = oldFetch;
+      });
+    }
+  }
+  // 恢复旧的fetch
+  window.fetch = oldFetch;
+}
+
+run(main);
+
+```
+
+1. 为了不影响全局fetch，首先我们需要保存旧的fetch函数。
+2. 创建一个cache对象，用于缓存结果。status有三种状态：pending, resolved, rejected。
+3. 然后我们创建一个新的fetch函数。
+4. 当fetch函数执行时，如果缓存中存在结果，则直接返回缓存的结果。
+5. 如果缓存中不存在结果，则执行旧的fetch函数，并缓存结果。并抛出promise。
+6. 等待promise最终完成后，再次把fetch函数改为newFetch。
+7. 执行fn。
+8. fn执行完成后，把fetch函数改为oldFetch。
