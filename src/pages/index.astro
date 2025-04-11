@@ -1,6 +1,7 @@
 ---
 import Separator from "../components/home/separator.astro";
 import Writings from "../components/home/writings.astro";
+import Demo from "../components/home/demo.astro";
 import Layout from "../layouts/main.astro";
 import "/node_modules/katex/dist/katex.min.css";
 ---
@@ -18,8 +19,10 @@ import "/node_modules/katex/dist/katex.min.css";
       my learnings with you. If you have any questions or suggestions, please
       feel free to contact me. Happy coding😉!
     </p>
-    
+
     <Separator text="Some of my writing" />
     <Writings />
+    <Separator text="Some of my demos" />
+    <Demo />
   </div>
 </Layout>
