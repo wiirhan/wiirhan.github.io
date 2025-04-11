@@ -23,6 +23,9 @@
   .ring-container {
     background-color: #000;
     perspective: 2000px;
+    cursor: grab;
+    user-select: none;
+    overflow: hidden;
   }
 
   .ring {
@@ -30,6 +33,7 @@
     height: 100vh;
     transform-style: preserve-3d;
     box-shadow: unset;
+    transition: transform 0.1s;
 
     img {
       position: absolute;
@@ -64,3 +68,32 @@
     }
   }
 </style>
+
+<script>
+  const ring = document.querySelector(".ring") as HTMLElement;
+  let isDragging = false;
+  let startX = 0;
+  let currentRotation = 0;
+  let previousRotation = 0;
+
+  ring.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+    isDragging = true;
+    startX = e.clientX;
+    ring.style.cursor = "grabbing";
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+
+    const deltaX = e.clientX - startX;
+    currentRotation = previousRotation - deltaX * 0.5;
+    ring.style.transform = `rotateY(${currentRotation}deg)`;
+  });
+
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+    previousRotation = currentRotation;
+    ring.style.cursor = "grab";
+  });
+</script>
