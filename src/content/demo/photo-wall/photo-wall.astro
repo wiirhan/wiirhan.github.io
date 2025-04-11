@@ -1,0 +1,65 @@
+---
+
+---
+
+<div class="ring-container">
+  <div class="ring">
+    <img src="https://picsum.photos/id/31/400/600" alt="" />
+    <img src="https://picsum.photos/id/32/400/600" alt="" />
+    <img src="https://picsum.photos/id/33/400/600" alt="" />
+    <img src="https://picsum.photos/id/34/400/600" alt="" />
+    <img src="https://picsum.photos/id/35/400/600" alt="" />
+    <img src="https://picsum.photos/id/36/400/600" alt="" />
+    <img src="https://picsum.photos/id/37/400/600" alt="" />
+    <img src="https://picsum.photos/id/38/400/600" alt="" />
+    <img src="https://picsum.photos/id/39/400/600" alt="" />
+    <img src="https://picsum.photos/id/40/400/600" alt="" />
+  </div>
+</div>
+
+<style lang="scss">
+  @use "sass:math";
+
+  .ring-container {
+    background-color: #000;
+    perspective: 2000px;
+  }
+
+  .ring {
+    width: 100vw;
+    height: 100vh;
+    transform-style: preserve-3d;
+
+    img {
+      position: absolute;
+      $imgWidth: 300px;
+      $imgHeight: 400px;
+      width: $imgWidth;
+      height: $imgHeight;
+      top: 50%;
+      left: 50%;
+      margin-left: -$imgWidth/2;
+      margin-top: -$imgHeight/2;
+
+      $n: 10;
+      $r: 500px;
+      $pDeg: 360deg / $n;
+      backface-visibility: hidden;
+      opacity: 0.5;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      @for $i from 1 through $n {
+        &:nth-child(#{$i}) {
+          $d: $i * $pDeg;
+          $x: $r * math.sin($d);
+          $z: $r * math.cos($d);
+          transform: translate3d($x, 0, $z) rotateY(180deg + $d);
+        }
+      }
+    }
+  }
+</style>
