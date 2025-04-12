@@ -19,7 +19,17 @@ const cssWeeklyCollection = defineCollection({
 	}),
 });
 
+const demoCollection = defineCollection({
+	type: "content",
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		dateFormatted: z.string(),
+	}),
+});
+
 export const collections = {
 	post: postCollection,
 	"css-weekly": cssWeeklyCollection,
+	demo: demoCollection,
 };
