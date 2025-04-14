@@ -1,0 +1,113 @@
+<div class="bg-slate-700 w-full p-6 min-h-screen">
+  <div
+    class="container-div mx-auto grid gap-10 grid-cols-3 relative w-[1000px]"
+  >
+    <div class="cursor-pointer">
+      <img
+        src="https://picsum.photos/id/1/400/400"
+        alt=""
+        class="object-cover"
+      />
+    </div>
+    <div class="cursor-pointer">
+      <img
+        src="https://picsum.photos/id/2/400/400"
+        alt=""
+        class="object-cover"
+      />
+    </div>
+    <div class="cursor-pointer">
+      <img
+        src="https://picsum.photos/id/3/400/400"
+        alt=""
+        class="object-cover"
+      />
+    </div>
+    <div class="cursor-pointer">
+      <img
+        src="https://picsum.photos/id/4/400/400"
+        alt=""
+        class="object-cover"
+      />
+    </div>
+    <div class="cursor-pointer">
+      <img
+        src="https://picsum.photos/id/5/400/400"
+        alt=""
+        class="object-cover"
+      />
+    </div>
+    <div class="cursor-pointer">
+      <img
+        src="https://picsum.photos/id/6/400/400"
+        alt=""
+        class="object-cover"
+      />
+    </div>
+    <div class="cursor-pointer">
+      <img
+        src="https://picsum.photos/id/7/400/400"
+        alt=""
+        class="object-cover"
+      />
+    </div>
+    <div class="cursor-pointer">
+      <img
+        src="https://picsum.photos/id/8/400/400"
+        alt=""
+        class="object-cover"
+      />
+    </div>
+    <div class="cursor-pointer">
+      <img
+        src="https://picsum.photos/id/9/400/400"
+        alt=""
+        class="object-cover"
+      />
+    </div>
+    <div class="pointer"></div>
+  </div>
+</div>
+
+<style>
+  .pointer {
+    position: absolute;
+    --t: 3px;
+    --l: 30px;
+    --g: 15px;
+    --s: 306px;
+    --x: 0px;
+    --y: 0px;
+    width: calc(var(--s) + 2 * var(--g));
+    height: calc(var(--s) + 2 * var(--g));
+    border: var(--t) solid #fff;
+    margin-left: calc(var(--g) * -1);
+    margin-top: calc(var(--g) * -1);
+    transform: translate(var(--x), var(--y));
+    transition: 0.5s;
+
+    -webkit-mask: conic-gradient(
+        at var(--l) var(--l),
+        transparent 75%,
+        white 75% 100%
+      )
+      0 0 / calc(100% - var(--l)) calc(100% - var(--l));
+  }
+</style>
+
+<script>
+  const imgs = document.querySelectorAll(
+    '.container-div img',
+  ) as NodeListOf<HTMLImageElement>
+  const pointer = document.querySelector('.pointer') as HTMLDivElement
+  for (const img of imgs) {
+    img.onmouseenter = () => {
+      const s = img.offsetWidth
+      const x = img.offsetLeft
+      const y = img.offsetTop
+      pointer.style.setProperty('--s', s + 'px')
+      pointer.style.setProperty('--x', x + 'px')
+      pointer.style.setProperty('--y', y + 'px')
+    }
+  }
+</script>
